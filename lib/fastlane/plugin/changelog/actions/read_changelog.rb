@@ -22,7 +22,7 @@ module Fastlane
         File.open(changelog_path, "r") do |file|
           file.each_line do |line|
             if found_section
-              break if line =~ /\#{2}\s?\[(.*?)\]/
+              break if line =~ /\#{1,2}\s?\[(.*?)\]/
               if !excluded_markdown_elements.nil? && !excluded_markdown_elements.empty?
                 markdownless_line = remove_markdown(line, excluded_markdown_elements)
                 section_content.concat(markdownless_line)
